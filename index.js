@@ -6,11 +6,16 @@ const { init: initDB, Counter } = require("./db");
 
 const logger = morgan("tiny");
 
+const bodyParser = require('body-parser')
+const axios = require('axios')
+
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 app.use(logger);
+
+const client = axios.default
 
 //微信小程序消息推送
 app.post("/api/wx_push", async (req, res) => {
