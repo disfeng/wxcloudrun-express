@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 
+//使用axios
 const client = axios.default
 
 //微信小程序消息推送
